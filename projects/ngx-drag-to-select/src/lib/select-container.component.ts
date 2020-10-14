@@ -291,6 +291,26 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
     this.$selectableItems.forEach(item => item.calculateBoundingClientRect());
   }
 
+  selectRange(startIndex: number, endIndex: number) {
+    this.$selectableItems.forEach((item, index) => {
+      if (index >= startIndex && index <= endIndex) {
+        this._selectItem(item);
+      } else {
+        this._deselectItem(item);
+      }
+    });
+  }
+
+  selectArray(indexArray: Array<number>) {
+    this.$selectableItems.forEach((item, index) => {
+      if (indexArray.includes(index)) {
+        this._selectItem(item);
+      } else {
+        this._deselectItem(item);
+      }
+    });
+  }
+
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
@@ -304,31 +324,25 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
   }
 
   private _initSelectedItemsChange() {
-    this._selectedItems$
-      .pipe(
-        auditTime(AUDIT_TIME),
-        takeUntil(this.destroy$)
-      )
-      .subscribe({
-        next: selectedItems => {
-          this.selectedItemsChange.emit(selectedItems);
-          this.select.emit(selectedItems);
-        },
-        complete: () => {
-          this.selectedItemsChange.emit([]);
-        }
-      });
+    this._selectedItems$.pipe(auditTime(AUDIT_TIME), takeUntil(this.destroy$)).subscribe({
+      next: selectedItems => {
+        this.selectedItemsChange.emit(selectedItems);
+        this.select.emit(selectedItems);
+      },
+      complete: () => {
+        this.selectedItemsChange.emit([]);
+      }
+    });
   }
 
   private _observeSelectableItems() {
     // Listen for updates and either select or deselect an item
     this.updateItems$
-      .pipe(
-        withLatestFrom(this._selectedItems$),
-        takeUntil(this.destroy$)
-      )
+      .pipe(withLatestFrom(this._selectedItems$), takeUntil(this.destroy$))
       .subscribe(([update, selectedItems]: [UpdateAction, any[]]) => {
         const item = update.item;
+
+        console.log('Updating item: ' + item + ' Update type: ' + update.type);
 
         switch (update.type) {
           case UpdateActions.Add:
@@ -346,11 +360,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
 
     // Update the container as well as all selectable items if the list has changed
     this.$selectableItems.changes
-      .pipe(
-        withLatestFrom(this._selectedItems$),
-        observeOn(asyncScheduler),
-        takeUntil(this.destroy$)
-      )
+      .pipe(withLatestFrom(this._selectedItems$), observeOn(asyncScheduler), takeUntil(this.destroy$))
       .subscribe(([items, selectedItems]: [QueryList<SelectItemDirective>, any[]]) => {
         const newList = items.toArray();
         this._selectableItems = newList;
@@ -371,11 +381,7 @@ export class SelectContainerComponent implements AfterViewInit, OnDestroy, After
       const containerScroll$ = fromEvent(this.host, 'scroll');
 
       merge(resize$, windowScroll$, containerScroll$)
-        .pipe(
-          startWith('INITIAL_UPDATE'),
-          auditTime(AUDIT_TIME),
-          takeUntil(this.destroy$)
-        )
+        .pipe(startWith('INITIAL_UPDATE'), auditTime(AUDIT_TIME), takeUntil(this.destroy$))
         .subscribe(() => {
           this.update();
         });
