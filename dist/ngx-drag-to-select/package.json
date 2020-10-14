@@ -1,0 +1,43 @@
+{
+  "name": "ngx-drag-to-select",
+  "version": "3.2.0-rc.0",
+  "description": "A lightweight, fast, configurable and reactive drag-to-select component for Angular 6 and beyond",
+  "sideEffects": false,
+  "peerDependencies": {
+    "@angular/core": ">=6.0.0 || >=7.0.0",
+    "@angular/common": ">=6.0.0 || >=7.0.0",
+    "rxjs": ">=6.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3lm/ngx-drag-to-select.git"
+  },
+  "keywords": [
+    "angular",
+    "ng2",
+    "ngx",
+    "ng",
+    "typescript",
+    "angular2",
+    "select",
+    "drag"
+  ],
+  "author": "Dominic Elm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d3lm/ngx-drag-to-select/issues"
+  },
+  "homepage": "https://github.com/d3lm/ngx-drag-to-select#readme",
+  "main": "bundles/ngx-drag-to-select.umd.js",
+  "module": "fesm5/ngx-drag-to-select.js",
+  "es2015": "fesm2015/ngx-drag-to-select.js",
+  "esm5": "esm5/ngx-drag-to-select.js",
+  "esm2015": "esm2015/ngx-drag-to-select.js",
+  "fesm5": "fesm5/ngx-drag-to-select.js",
+  "fesm2015": "fesm2015/ngx-drag-to-select.js",
+  "typings": "ngx-drag-to-select.d.ts",
+  "metadata": "ngx-drag-to-select.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

@@ -1,0 +1,51 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { DEFAULT_CONFIG } from './config';
+import { KeyboardEventsService } from './keyboard-events.service';
+import { SelectContainerComponent } from './select-container.component';
+import { SelectItemDirective } from './select-item.directive';
+import { ShortcutService } from './shortcut.service';
+import { CONFIG, USER_CONFIG } from './tokens';
+import { mergeDeep } from './utils';
+/** @type {?} */
+const COMPONENTS = [SelectContainerComponent, SelectItemDirective];
+/**
+ * @param {?} config
+ * @return {?}
+ */
+export function CONFIG_FACTORY(config) {
+    return mergeDeep(DEFAULT_CONFIG, config);
+}
+export class DragToSelectModule {
+    /**
+     * @param {?=} config
+     * @return {?}
+     */
+    static forRoot(config = {}) {
+        return {
+            ngModule: DragToSelectModule,
+            providers: [
+                ShortcutService,
+                KeyboardEventsService,
+                { provide: USER_CONFIG, useValue: config },
+                {
+                    provide: CONFIG,
+                    useFactory: CONFIG_FACTORY,
+                    deps: [USER_CONFIG]
+                }
+            ]
+        };
+    }
+}
+DragToSelectModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule],
+                declarations: [...COMPONENTS],
+                exports: [...COMPONENTS]
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJhZy10by1zZWxlY3QubW9kdWxlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LWRyYWctdG8tc2VsZWN0LyIsInNvdXJjZXMiOlsibGliL2RyYWctdG8tc2VsZWN0Lm1vZHVsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsT0FBTyxFQUFFLFlBQVksRUFBRSxNQUFNLGlCQUFpQixDQUFDO0FBQy9DLE9BQU8sRUFBdUIsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQzlELE9BQU8sRUFBRSxjQUFjLEVBQUUsTUFBTSxVQUFVLENBQUM7QUFDMUMsT0FBTyxFQUFFLHFCQUFxQixFQUFFLE1BQU0sMkJBQTJCLENBQUM7QUFFbEUsT0FBTyxFQUFFLHdCQUF3QixFQUFFLE1BQU0sOEJBQThCLENBQUM7QUFDeEUsT0FBTyxFQUFFLG1CQUFtQixFQUFFLE1BQU0seUJBQXlCLENBQUM7QUFDOUQsT0FBTyxFQUFFLGVBQWUsRUFBRSxNQUFNLG9CQUFvQixDQUFDO0FBQ3JELE9BQU8sRUFBRSxNQUFNLEVBQUUsV0FBVyxFQUFFLE1BQU0sVUFBVSxDQUFDO0FBQy9DLE9BQU8sRUFBRSxTQUFTLEVBQUUsTUFBTSxTQUFTLENBQUM7O01BRTlCLFVBQVUsR0FBRyxDQUFDLHdCQUF3QixFQUFFLG1CQUFtQixDQUFDOzs7OztBQUVsRSxNQUFNLFVBQVUsY0FBYyxDQUFDLE1BQW1DO0lBQ2hFLE9BQU8sU0FBUyxDQUFDLGNBQWMsRUFBRSxNQUFNLENBQUMsQ0FBQztBQUMzQyxDQUFDO0FBT0QsTUFBTSxPQUFPLGtCQUFrQjs7Ozs7SUFDN0IsTUFBTSxDQUFDLE9BQU8sQ0FBQyxTQUFzQyxFQUFFO1FBQ3JELE9BQU87WUFDTCxRQUFRLEVBQUUsa0JBQWtCO1lBQzVCLFNBQVMsRUFBRTtnQkFDVCxlQUFlO2dCQUNmLHFCQUFxQjtnQkFDckIsRUFBRSxPQUFPLEVBQUUsV0FBVyxFQUFFLFFBQVEsRUFBRSxNQUFNLEVBQUU7Z0JBQzFDO29CQUNFLE9BQU8sRUFBRSxNQUFNO29CQUNmLFVBQVUsRUFBRSxjQUFjO29CQUMxQixJQUFJLEVBQUUsQ0FBQyxXQUFXLENBQUM7aUJBQ3BCO2FBQ0Y7U0FDRixDQUFDO0lBQ0osQ0FBQzs7O1lBcEJGLFFBQVEsU0FBQztnQkFDUixPQUFPLEVBQUUsQ0FBQyxZQUFZLENBQUM7Z0JBQ3ZCLFlBQVksRUFBRSxDQUFDLEdBQUcsVUFBVSxDQUFDO2dCQUM3QixPQUFPLEVBQUUsQ0FBQyxHQUFHLFVBQVUsQ0FBQzthQUN6QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5pbXBvcnQgeyBNb2R1bGVXaXRoUHJvdmlkZXJzLCBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgREVGQVVMVF9DT05GSUcgfSBmcm9tICcuL2NvbmZpZyc7XG5pbXBvcnQgeyBLZXlib2FyZEV2ZW50c1NlcnZpY2UgfSBmcm9tICcuL2tleWJvYXJkLWV2ZW50cy5zZXJ2aWNlJztcbmltcG9ydCB7IERyYWdUb1NlbGVjdENvbmZpZyB9IGZyb20gJy4vbW9kZWxzJztcbmltcG9ydCB7IFNlbGVjdENvbnRhaW5lckNvbXBvbmVudCB9IGZyb20gJy4vc2VsZWN0LWNvbnRhaW5lci5jb21wb25lbnQnO1xuaW1wb3J0IHsgU2VsZWN0SXRlbURpcmVjdGl2ZSB9IGZyb20gJy4vc2VsZWN0LWl0ZW0uZGlyZWN0aXZlJztcbmltcG9ydCB7IFNob3J0Y3V0U2VydmljZSB9IGZyb20gJy4vc2hvcnRjdXQuc2VydmljZSc7XG5pbXBvcnQgeyBDT05GSUcsIFVTRVJfQ09ORklHIH0gZnJvbSAnLi90b2tlbnMnO1xuaW1wb3J0IHsgbWVyZ2VEZWVwIH0gZnJvbSAnLi91dGlscyc7XG5cbmNvbnN0IENPTVBPTkVOVFMgPSBbU2VsZWN0Q29udGFpbmVyQ29tcG9uZW50LCBTZWxlY3RJdGVtRGlyZWN0aXZlXTtcblxuZXhwb3J0IGZ1bmN0aW9uIENPTkZJR19GQUNUT1JZKGNvbmZpZzogUGFydGlhbDxEcmFnVG9TZWxlY3RDb25maWc+KSB7XG4gIHJldHVybiBtZXJnZURlZXAoREVGQVVMVF9DT05GSUcsIGNvbmZpZyk7XG59XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IFtDb21tb25Nb2R1bGVdLFxuICBkZWNsYXJhdGlvbnM6IFsuLi5DT01QT05FTlRTXSxcbiAgZXhwb3J0czogWy4uLkNPTVBPTkVOVFNdXG59KVxuZXhwb3J0IGNsYXNzIERyYWdUb1NlbGVjdE1vZHVsZSB7XG4gIHN0YXRpYyBmb3JSb290KGNvbmZpZzogUGFydGlhbDxEcmFnVG9TZWxlY3RDb25maWc+ID0ge30pOiBNb2R1bGVXaXRoUHJvdmlkZXJzPERyYWdUb1NlbGVjdE1vZHVsZT4ge1xuICAgIHJldHVybiB7XG4gICAgICBuZ01vZHVsZTogRHJhZ1RvU2VsZWN0TW9kdWxlLFxuICAgICAgcHJvdmlkZXJzOiBbXG4gICAgICAgIFNob3J0Y3V0U2VydmljZSxcbiAgICAgICAgS2V5Ym9hcmRFdmVudHNTZXJ2aWNlLFxuICAgICAgICB7IHByb3ZpZGU6IFVTRVJfQ09ORklHLCB1c2VWYWx1ZTogY29uZmlnIH0sXG4gICAgICAgIHtcbiAgICAgICAgICBwcm92aWRlOiBDT05GSUcsXG4gICAgICAgICAgdXNlRmFjdG9yeTogQ09ORklHX0ZBQ1RPUlksXG4gICAgICAgICAgZGVwczogW1VTRVJfQ09ORklHXVxuICAgICAgICB9XG4gICAgICBdXG4gICAgfTtcbiAgfVxufVxuIl19

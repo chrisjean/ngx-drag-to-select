@@ -1,0 +1,10 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { InjectionToken } from '@angular/core';
+/** @type {?} */
+export const CONFIG = new InjectionToken('DRAG_TO_SELECT_CONFIG');
+/** @type {?} */
+export const USER_CONFIG = new InjectionToken('USER_CONFIG');
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9rZW5zLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LWRyYWctdG8tc2VsZWN0LyIsInNvdXJjZXMiOlsibGliL3Rva2Vucy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsT0FBTyxFQUFFLGNBQWMsRUFBRSxNQUFNLGVBQWUsQ0FBQzs7QUFHL0MsTUFBTSxPQUFPLE1BQU0sR0FBRyxJQUFJLGNBQWMsQ0FBcUIsdUJBQXVCLENBQUM7O0FBQ3JGLE1BQU0sT0FBTyxXQUFXLEdBQUcsSUFBSSxjQUFjLENBQXFCLGFBQWEsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGlvblRva2VuIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBEcmFnVG9TZWxlY3RDb25maWcgfSBmcm9tICcuL21vZGVscyc7XG5cbmV4cG9ydCBjb25zdCBDT05GSUcgPSBuZXcgSW5qZWN0aW9uVG9rZW48RHJhZ1RvU2VsZWN0Q29uZmlnPignRFJBR19UT19TRUxFQ1RfQ09ORklHJyk7XG5leHBvcnQgY29uc3QgVVNFUl9DT05GSUcgPSBuZXcgSW5qZWN0aW9uVG9rZW48RHJhZ1RvU2VsZWN0Q29uZmlnPignVVNFUl9DT05GSUcnKTtcbiJdfQ==
